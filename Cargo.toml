@@ -5,6 +5,7 @@ authors = ["Joel Setterberg <j.settrbrg@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+regex = "1"
 
 [[bin]]
 name = "adventofcode-2020"
