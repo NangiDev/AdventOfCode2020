@@ -1,6 +1,6 @@
 use std::fs;
 
-fn check_unofficial_password_validity(password: &str) -> bool {
+pub fn check_unofficial_password_validity(password: &str) -> bool {
     let filtered: String = str::replace(password, ": ", ":");
     let splice: Vec<&str> = filtered.split(&[' ', ':', '-'][..]).collect();
 
@@ -9,7 +9,7 @@ fn check_unofficial_password_validity(password: &str) -> bool {
     count >= splice[0].parse::<i32>().unwrap() && count <= splice[1].parse::<i32>().unwrap()
 }
 
-fn count_valid_passwords_according_to_unofficial_toboggan_policy(passwords: Vec<&str>) -> i32 {
+pub fn count_valid_passwords_according_to_unofficial_toboggan_policy(passwords: Vec<&str>) -> i32 {
     let mut count = 0;
     for p in passwords {
         if check_unofficial_password_validity(p) {
@@ -20,7 +20,7 @@ fn count_valid_passwords_according_to_unofficial_toboggan_policy(passwords: Vec<
     count
 }
 
-fn check_official_password_validity(password: &str) -> bool {
+pub fn check_official_password_validity(password: &str) -> bool {
     let filtered: String = str::replace(password, ": ", ":");
     let splice: Vec<&str> = filtered.split(&[' ', ':', '-'][..]).collect();
 
@@ -35,7 +35,7 @@ fn check_official_password_validity(password: &str) -> bool {
     (first == expected || second == expected) && !(first == expected && second == expected)
 }
 
-fn count_valid_passwords_according_to_official_toboggan_policy(passwords: Vec<&str>) -> i32 {
+pub fn count_valid_passwords_according_to_official_toboggan_policy(passwords: Vec<&str>) -> i32 {
     let mut count = 0;
     for p in passwords {
         if check_official_password_validity(p) {
