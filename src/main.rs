@@ -1,5 +1,5 @@
-use adventofcode_2020::day8;
+use adventofcode_2020::day10;
 
 fn main() {
-    println!("{}", day8::_2());
+    println!("{}", day10::_2());
 }
