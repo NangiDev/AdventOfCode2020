@@ -38,21 +38,20 @@ fn run_depth(index: usize, joltages: &Vec<i64>, memo: &mut HashMap<usize, i64>) 
     }
 
     let mut stack: Vec<usize> = vec![];
-    for i in (index + 1)..joltages.len() {
+
+    for i in (index + 1)..(index + 4).min(joltages.len()) {
         match joltages[i] - joltages[index] {
             1 | 2 | 3 => stack.push(i),
             _ => {}
         }
     }
 
-    let mut count: i64 = 0;
-    while !stack.is_empty() {
-        let next_index = stack.remove(stack.len() - 1);
-        count += run_depth(next_index, joltages, memo);
+    let count = stack
+        .into_iter()
+        .map(|s| run_depth(s, joltages, memo))
+        .sum();
 
-        memo.insert(index, count);
-    }
-
+    memo.insert(index, count);
     count
 }
 
