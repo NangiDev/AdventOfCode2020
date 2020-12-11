@@ -9,34 +9,52 @@ mod day_2 {
 
     #[test]
     fn check_if_password_is_valid_according_to_unofficial_policy() {
-        assert_eq!(check_unofficial_password_validity("1-3 a: abcde"), true);
-        assert_eq!(check_unofficial_password_validity("1-3 b: cdefg"), false);
-        assert_eq!(check_unofficial_password_validity("2-9 c: ccccccccc"), true);
+        assert_eq!(
+            check_unofficial_password_validity("1-3 a: abcde".to_string()),
+            true
+        );
+        assert_eq!(
+            check_unofficial_password_validity("1-3 b: cdefg".to_string()),
+            false
+        );
+        assert_eq!(
+            check_unofficial_password_validity("2-9 c: ccccccccc".to_string()),
+            true
+        );
     }
 
     #[test]
     fn find_two_valid_passwords_according_to_unofficial_policy() {
         let result = count_valid_passwords_according_to_unofficial_toboggan_policy(vec![
-            "1-3 a: abcde",
-            "1-3 b: cdefg",
-            "2-9 c: ccccccccc",
+            "1-3 a: abcde".to_string(),
+            "1-3 b: cdefg".to_string(),
+            "2-9 c: ccccccccc".to_string(),
         ]);
         assert_eq!(result, 2);
     }
 
     #[test]
     fn check_if_password_is_valid_according_to_official_policy() {
-        assert_eq!(check_official_password_validity("1-3 a: abcde"), true);
-        assert_eq!(check_official_password_validity("1-3 b: cdefg"), false);
-        assert_eq!(check_official_password_validity("2-9 c: ccccccccc"), false);
+        assert_eq!(
+            check_official_password_validity("1-3 a: abcde".to_string()),
+            true
+        );
+        assert_eq!(
+            check_official_password_validity("1-3 b: cdefg".to_string()),
+            false
+        );
+        assert_eq!(
+            check_official_password_validity("2-9 c: ccccccccc".to_string()),
+            false
+        );
     }
 
     #[test]
     fn find_one_valid_passwords_according_to_official_policy() {
         let result = count_valid_passwords_according_to_official_toboggan_policy(vec![
-            "1-3 a: abcde",
-            "1-3 b: cdefg",
-            "2-9 c: ccccccccc",
+            "1-3 a: abcde".to_string(),
+            "1-3 b: cdefg".to_string(),
+            "2-9 c: ccccccccc".to_string(),
         ]);
         assert_eq!(result, 1);
     }

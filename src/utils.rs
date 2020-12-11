@@ -7,6 +7,7 @@ macro_rules! input {
     }};
 }
 
+#[derive(Debug)]
 pub struct Input {
     pub path: &'static str,
 }
@@ -14,13 +15,13 @@ pub struct Input {
 impl Input {
     pub fn as_string(self: &Self) -> Vec<String> {
         let content = read_to_string(self.path).expect("Something went wrong reading the file");
-        content.split_whitespace().map(From::from).collect()
+        content.split("\n").map(From::from).collect()
     }
 
     pub fn as_int(self: &Self) -> Vec<i32> {
         let content = read_to_string(self.path).expect("Something went wrong reading the file");
         content
-            .split_whitespace()
+            .split("\n")
             .map(|s| s.parse::<i32>().unwrap())
             .collect()
     }
