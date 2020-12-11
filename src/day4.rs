@@ -1,25 +1,7 @@
 use regex::Regex;
 use std::collections::HashMap;
-use std::fs;
 
-fn read_input() -> Vec<HashMap<String, String>> {
-    let path = "./src/input_files/day4.txt";
-    let contents = fs::read_to_string(path).expect("Something went wrong reading the file");
-
-    let batches: Vec<String> = contents.split("\n\n").map(|s| s.to_string()).collect();
-
-    let mut passports: Vec<HashMap<String, String>> = vec![];
-    for b in batches {
-        let mut map: HashMap<String, String> = HashMap::new();
-        let pairs: Vec<String> = b.split_whitespace().map(|s| s.to_string()).collect();
-        for p in pairs {
-            let pair: Vec<String> = p.split(":").map(|s| s.to_string()).collect();
-            map.insert(pair[0].clone(), pair[1].clone());
-        }
-        passports.push(map);
-    }
-    passports
-}
+use crate::{input, utils::Input};
 
 pub fn is_valid_passport(map: &HashMap<String, String>) -> bool {
     map.contains_key("ecl")
@@ -116,11 +98,29 @@ pub fn filter_valid_passports(
     filter
 }
 
+fn input_to_hashmap(batches: Vec<String>) -> Vec<HashMap<String, String>> {
+    let mut passports: Vec<HashMap<String, String>> = vec![];
+    for b in batches {
+        let mut map: HashMap<String, String> = HashMap::new();
+        let pairs: Vec<String> = b.split_whitespace().map(|s| s.to_string()).collect();
+        for p in pairs {
+            let pair: Vec<String> = p.split(":").map(|s| s.to_string()).collect();
+            map.insert(pair[0].clone(), pair[1].clone());
+        }
+        passports.push(map);
+    }
+    passports
+}
+
 pub fn _1() -> i32 {
-    filter_complete_passports(read_input()).len() as i32
+    let input = input!("./src/input_files/day4.txt");
+    let hash_map = input_to_hashmap(input.as_group());
+    filter_complete_passports(hash_map).len() as i32
 }
 
 pub fn _2() -> i32 {
-    let valid_input = filter_complete_passports(read_input());
+    let input = input!("./src/input_files/day4.txt");
+    let hash_map = input_to_hashmap(input.as_group());
+    let valid_input = filter_complete_passports(hash_map);
     filter_valid_passports(valid_input).len() as i32
 }

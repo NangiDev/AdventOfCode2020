@@ -18,6 +18,11 @@ impl Input {
         content.split("\n").map(From::from).collect()
     }
 
+    pub fn as_group(self: &Self) -> Vec<String> {
+        let content = read_to_string(self.path).expect("Something went wrong reading the file");
+        content.split("\n\n").map(From::from).collect()
+    }
+
     pub fn as_int(self: &Self) -> Vec<i32> {
         let content = read_to_string(self.path).expect("Something went wrong reading the file");
         content
