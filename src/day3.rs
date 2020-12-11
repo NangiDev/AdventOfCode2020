@@ -1,4 +1,4 @@
-use std::fs;
+use crate::{input, utils::Input};
 
 pub struct Step {
     pub x: i32,
@@ -37,26 +37,24 @@ pub fn count_trees_in_path(step: Step, map: &Map) -> i32 {
     tree_count
 }
 
-fn read_input() -> Map {
-    let path = "./src/input_files/day3.txt";
-    let contents = fs::read_to_string(path).expect("Something went wrong reading the file");
-
-    let grid: Vec<String> = contents.split_whitespace().map(|s| s.to_string()).collect();
-
+fn input_to_map(input: Vec<String>) -> Map {
     Map {
-        width: grid[0].len() as i32,
-        height: grid.len() as i32,
-        grid: grid,
+        width: input[0].len() as i32,
+        height: input.len() as i32,
+        grid: input,
     }
 }
 
 pub fn _1() -> i32 {
+    let input = input!("./src/input_files/day3.txt");
+    let map = input_to_map(input.as_string());
     let step = Step { x: 3, y: 1 };
-    count_trees_in_path(step, &read_input())
+    count_trees_in_path(step, &map)
 }
 
 pub fn _2() -> i32 {
-    let map = read_input();
+    let input = input!("./src/input_files/day3.txt");
+    let map = input_to_map(input.as_string());
     let step = Step { x: 1, y: 1 };
     let mut answer = count_trees_in_path(step, &map);
 
