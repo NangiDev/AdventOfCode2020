@@ -1,4 +1,4 @@
-use std::fs;
+use crate::{input, utils::Input};
 
 pub fn fix_expense_report_2(values: Vec<i32>) -> i32 {
     for v1 in &values {
@@ -23,15 +23,11 @@ pub fn fix_expense_report_3(values: Vec<i32>) -> i32 {
     return 0;
 }
 
-fn read_input() -> Vec<i32> {
-    let path = "./src/input_files/day1.txt";
-    let contents = fs::read_to_string(path).expect("Something went wrong reading the file");
-    contents.split("\n").map(|f| f.parse().unwrap()).collect()
-}
-
 pub fn _1() -> i32 {
-    fix_expense_report_2(read_input())
+    let input = input!("./src/input_files/day1.txt");
+    fix_expense_report_2(input.as_int())
 }
 pub fn _2() -> i32 {
-    fix_expense_report_3(read_input())
+    let input = input!("./src/input_files/day1.txt");
+    fix_expense_report_3(input.as_int())
 }
