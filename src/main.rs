@@ -36,7 +36,7 @@ fn main() {
         }
     }
 
-    match day.parse::<i32>() {
+    match day.trim().parse::<i32>() {
         Ok(day_num) => match day_num {
             1 => run_day!(day1),
             2 => run_day!(day2),
