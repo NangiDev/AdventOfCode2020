@@ -26,7 +26,7 @@ fn main() {
 
     match args.get(1) {
         Some(option) => {
-            day = format!("{}", option);
+            day = option.to_string();
         }
         None => {
             println!("Enter day: ");
@@ -49,6 +49,7 @@ fn main() {
             9 => run_day!(day9),
             10 => run_day!(day10),
             11 => run_day!(day11),
+            12 => run_day!(day12),
             _ => invalid_day!(day),
         },
         Err(_) => {
