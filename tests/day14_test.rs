@@ -1,53 +1,43 @@
 #[cfg(test)]
 mod day_1 {
-    use adventofcode_2020::day14::{convert_params_to_objects, Parameter};
+    use adventofcode_2020::day14::{apply_mask, convert_byte, sum_memory};
 
     #[test]
-    fn convert_param_to_object() {
-        let result: Vec<Parameter> = convert_params_to_objects(vec![
-            "mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X".to_string(),
-            "mem[8] = 11".to_string(),
-            "mem[7] = 101".to_string(),
-            "mem[8] = 0".to_string(),
-        ]);
-
-        let mut expected: Vec<Parameter> = vec![];
-        let mut p1 = Parameter::new(0b0000000000000000000000000001000000);
-        p1.add_mem((8, 11));
-        p1.add_mem((7, 101));
-        p1.add_mem((8, 0));
-        expected.push(p1);
-
-        assert_eq!(result[0].mask, expected[0].mask);
-        assert_eq!(result[0].mems, expected[0].mems);
+    fn apply_mask_11_to_73() {
+        let mask: String = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X".to_string();
+        let result: i64 = apply_mask(mask, 11);
+        assert_eq!(result, 73);
     }
 
     #[test]
-    fn convert_multiple_params_to_object() {
-        let result: Vec<Parameter> = convert_params_to_objects(vec![
+    fn apply_mask_101_to_101() {
+        let mask: String = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X".to_string();
+        let result: i64 = apply_mask(mask, 101);
+        assert_eq!(result, 101);
+    }
+
+    #[test]
+    fn apply_mask_0_to_64() {
+        let mask: String = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X".to_string();
+        let result: i64 = apply_mask(mask, 0);
+        assert_eq!(result, 64);
+    }
+
+    #[test]
+    fn convert_bytes_to_i64_73() {
+        let result: i64 = convert_byte("0b0000000000000000000000000001001001".to_string());
+        assert_eq!(result, 73);
+    }
+
+    #[test]
+    fn sum_remaining_values_in_mem_to_165() {
+        let input: Vec<String> = vec![
             "mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X".to_string(),
             "mem[8] = 11".to_string(),
             "mem[7] = 101".to_string(),
             "mem[8] = 0".to_string(),
-            "mask = XX00111XX1010X0110011110X1XX110010X1".to_string(),
-            "mem[6] = 34".to_string(),
-            "mem[2] = 152".to_string(),
-            "mem[4] = 0".to_string(),
-        ]);
-
-        let mut expected: Vec<Parameter> = vec![];
-        let mut p1 = Parameter::new(0b0000000000000000000000000001000000);
-        p1.add_mem((8, 11));
-        p1.add_mem((7, 101));
-        p1.add_mem((8, 0));
-        expected.push(p1);
-        let mut p1 = Parameter::new(0b0011100101000110011110010011001001);
-        p1.add_mem((6, 34));
-        p1.add_mem((2, 152));
-        p1.add_mem((4, 0));
-        expected.push(p1);
-
-        assert_eq!(result[0].mask, expected[0].mask);
-        assert_eq!(result[0].mems, expected[0].mems);
+        ];
+        let result: i64 = sum_memory(input);
+        assert_eq!(result, 165);
     }
 }
