@@ -59,7 +59,8 @@ pub fn _1() -> i64 {
     let input = input!("./src/input_files/day14.txt").as_string();
     sum_memory(input)
 }
-pub fn _2() -> i32 {
+pub fn _2() -> i64 {
     let _input = input!("./src/input_files/day14.txt").as_string();
+    println!("Not implemented yet");
     0
 }
