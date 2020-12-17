@@ -52,6 +52,7 @@ fn main() {
             12 => run_day!(day12),
             13 => run_day!(day13),
             14 => run_day!(day14),
+            15 => run_day!(day15),
             _ => invalid_day!(day),
         },
         Err(_) => {

@@ -1,5 +1,5 @@
 #[cfg(test)]
-mod day_1 {
+mod day_14 {
     use adventofcode_2020::day14::{apply_mask, convert_byte, sum_memory};
 
     #[test]
