@@ -53,6 +53,7 @@ fn main() {
             13 => run_day!(day13),
             14 => run_day!(day14),
             15 => run_day!(day15),
+            16 => run_day!(day16),
             18 => run_day!(day18),
             _ => invalid_day!(day),
         },
