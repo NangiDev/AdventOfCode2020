@@ -12,8 +12,3 @@ name = "adventofcode-2020"
 path = "src/main.rs"
 
 [dev-dependencies]
-criterion = "0.3.2"
-
-[[bench]]
-name = "my_benchmark"
-harness = false
