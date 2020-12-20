@@ -70,7 +70,7 @@ pub fn has_no_sourrounding_adjacent(x: i32, y: i32, state: &Vec<Vec<char>>) -> b
 }
 
 pub fn play_n_round(n: i32, state: Vec<Vec<char>>) -> Vec<Vec<char>> {
-    let mut new_state = state.clone();
+    let mut new_state = state;
 
     for _i in 0..n {
         new_state = play_one_round(&mut new_state.clone());
@@ -80,7 +80,7 @@ pub fn play_n_round(n: i32, state: Vec<Vec<char>>) -> Vec<Vec<char>> {
 }
 
 pub fn play_n_round_part_2(n: i32, state: Vec<Vec<char>>) -> Vec<Vec<char>> {
-    let mut new_state = state.clone();
+    let mut new_state = state;
 
     for _i in 0..n {
         new_state = play_one_round_part_2(&mut new_state.clone());
@@ -189,7 +189,7 @@ fn vec_compare(va: &Vec<Vec<char>>, vb: &Vec<Vec<char>>) -> bool {
 fn read_input() -> Vec<Vec<char>> {
     let path = "./src/input_files/day11.txt";
     let contents = fs::read_to_string(path).expect("Something went wrong reading the file");
-    contents.split("\n").map(|f| f.chars().collect()).collect()
+    contents.split('\n').map(|f| f.chars().collect()).collect()
 }
 
 pub fn _1() -> i32 {

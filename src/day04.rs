@@ -18,19 +18,19 @@ pub fn is_fields_valid(map: &HashMap<String, String>) -> bool {
         match key.as_str() {
             "byr" => {
                 let val = value.parse::<i32>().unwrap();
-                if val < 1920 || val > 2002 {
+                if !(1920..=2002).contains(&val) {
                     return false;
                 }
             }
             "iyr" => {
                 let val = value.parse::<i32>().unwrap();
-                if val < 2010 || val > 2020 {
+                if !(2010..=2020).contains(&val) {
                     return false;
                 }
             }
             "eyr" => {
                 let val = value.parse::<i32>().unwrap();
-                if val < 2020 || val > 2030 {
+                if !(2020..=2030).contains(&val) {
                     return false;
                 }
             }
@@ -90,12 +90,10 @@ pub fn filter_complete_passports(
 pub fn filter_valid_passports(
     read_input: Vec<HashMap<String, String>>,
 ) -> Vec<HashMap<String, String>> {
-    let filter = read_input
+    read_input
         .into_iter()
         .filter(|p| is_fields_valid(p))
-        .collect();
-
-    filter
+        .collect()
 }
 
 fn input_to_hashmap(batches: Vec<String>) -> Vec<HashMap<String, String>> {
@@ -104,7 +102,7 @@ fn input_to_hashmap(batches: Vec<String>) -> Vec<HashMap<String, String>> {
         let mut map: HashMap<String, String> = HashMap::new();
         let pairs: Vec<String> = b.split_whitespace().map(|s| s.to_string()).collect();
         for p in pairs {
-            let pair: Vec<String> = p.split(":").map(|s| s.to_string()).collect();
+            let pair: Vec<String> = p.split(':').map(|s| s.to_string()).collect();
             map.insert(pair[0].clone(), pair[1].clone());
         }
         passports.push(map);

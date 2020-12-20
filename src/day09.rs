@@ -6,11 +6,11 @@ fn read_input() -> Vec<String> {
     let path = "./src/input_files/day9.txt";
     let contents = fs::read_to_string(path).expect("Something went wrong reading the file");
 
-    let batches: Vec<String> = contents.split("\n").map(|s| s.to_string()).collect();
+    let batches: Vec<String> = contents.split('\n').map(|s| s.to_string()).collect();
     batches
 }
 
-pub fn is_valid_number(seq: &Vec<i64>, number: i64) -> bool {
+pub fn is_valid_number(seq: &[i64], number: i64) -> bool {
     for n1 in seq {
         for n2 in seq {
             if n1 != n2 && n1 + n2 == number {

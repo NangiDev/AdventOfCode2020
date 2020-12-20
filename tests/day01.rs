@@ -1,5 +1,5 @@
 #[cfg(test)]
-mod day_1 {
+mod day01_test {
     use adventofcode_2020::day01::{fix_expense_report_2, fix_expense_report_3};
     use std::vec;
 

@@ -10,7 +10,7 @@ pub fn get_multiplied_adapter_diffs(mut joltages: Vec<i64>) -> i64 {
     let mut threes = 0;
     let mut oncies = 0;
     joltages.push(get_built_in_joltage(joltages.clone()));
-    joltages.sort();
+    joltages.sort_unstable();
     joltages.into_iter().fold(0, |i, n| {
         if n - i >= 3 {
             threes += 1;
@@ -25,11 +25,11 @@ pub fn get_multiplied_adapter_diffs(mut joltages: Vec<i64>) -> i64 {
 pub fn get_total_of_combinations(mut joltages: Vec<i64>) -> i64 {
     joltages.push(0);
     joltages.push(get_built_in_joltage(joltages.clone()));
-    joltages.sort();
+    joltages.sort_unstable();
     run_depth(0, &joltages, &mut HashMap::new())
 }
 
-fn run_depth(index: usize, joltages: &Vec<i64>, memo: &mut HashMap<usize, i64>) -> i64 {
+fn run_depth(index: usize, joltages: &[i64], memo: &mut HashMap<usize, i64>) -> i64 {
     if memo.contains_key(&index) {
         return *memo.get(&index).unwrap();
     }
@@ -60,7 +60,7 @@ fn run_depth(index: usize, joltages: &Vec<i64>, memo: &mut HashMap<usize, i64>) 
 fn read_input() -> Vec<i64> {
     let path = "./src/input_files/day10.txt";
     let contents = fs::read_to_string(path).expect("Something went wrong reading the file");
-    contents.split("\n").map(|f| f.parse().unwrap()).collect()
+    contents.split('\n').map(|f| f.parse().unwrap()).collect()
 }
 
 pub fn _1() -> i64 {

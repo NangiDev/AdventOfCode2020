@@ -21,7 +21,7 @@ pub fn count_trees_in_path(step: Step, map: &Map) -> i32 {
 
     while position.y < map.height {
         if position.x >= map.width {
-            position.x = position.x - map.width;
+            position.x -= map.width;
         }
 
         let index_x: usize = position.x as usize;

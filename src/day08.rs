@@ -31,7 +31,7 @@ pub fn exec_2(instructions: Vec<[String; 2]>) -> i32 {
 
 fn exec_single_instruction_on_inf_loop(
     index: i32,
-    instructions: &Vec<[String; 2]>,
+    instructions: &[[String; 2]],
     memo: &mut std::vec::Vec<i32>,
     result: i32,
 ) -> i32 {
@@ -50,7 +50,7 @@ fn exec_single_instruction_on_inf_loop(
 fn exec_single_instruction_terminate_correctly(
     index: i32,
     indices: &mut Vec<i32>,
-    instructions: &Vec<[String; 2]>,
+    instructions: &[[String; 2]],
     memo: &mut std::vec::Vec<i32>,
     result: i32,
 ) -> i32 {
@@ -121,7 +121,7 @@ fn exec_single_instruction_terminate_correctly(
 
 fn nop(
     index: i32,
-    instructions: &Vec<[String; 2]>,
+    instructions: &[[String; 2]],
     memo: &mut std::vec::Vec<i32>,
     result: i32,
 ) -> i32 {
@@ -131,7 +131,7 @@ fn nop(
 
 fn acc(
     index: i32,
-    instructions: &Vec<[String; 2]>,
+    instructions: &[[String; 2]],
     memo: &mut std::vec::Vec<i32>,
     mut result: i32,
 ) -> i32 {
@@ -142,7 +142,7 @@ fn acc(
 
 fn jmp(
     index: i32,
-    instructions: &Vec<[String; 2]>,
+    instructions: &[[String; 2]],
     memo: &mut std::vec::Vec<i32>,
     result: i32,
 ) -> i32 {
@@ -159,7 +159,7 @@ pub fn convert_exec(instructions: Vec<String>) -> Vec<[String; 2]> {
     let converted: Vec<[String; 2]> = instructions
         .into_iter()
         .map(|i| {
-            let i: Vec<&str> = i.split(" ").collect();
+            let i: Vec<&str> = i.split(' ').collect();
             [
                 i[0].to_string(),
                 i[1].to_string().parse::<i32>().unwrap().to_string(),
@@ -173,7 +173,7 @@ pub fn convert_exec(instructions: Vec<String>) -> Vec<[String; 2]> {
 fn read_input() -> Vec<String> {
     let path = "./src/input_files/day8.txt";
     let contents = fs::read_to_string(path).expect("Something went wrong reading the file");
-    contents.split("\n").map(|f| f.parse().unwrap()).collect()
+    contents.split('\n').map(|f| f.parse().unwrap()).collect()
 }
 
 pub fn _1() -> i32 {

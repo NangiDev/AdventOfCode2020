@@ -6,13 +6,13 @@ fn read_input() -> Vec<String> {
     let path = "./src/input_files/day7.txt";
     let contents = fs::read_to_string(path).expect("Something went wrong reading the file");
 
-    let batches: Vec<String> = contents.split("\n").map(|s| s.to_string()).collect();
+    let batches: Vec<String> = contents.split('\n').map(|s| s.to_string()).collect();
     batches
 }
 
 pub fn add_bag(
     mut map: HashMap<String, Vec<String>>,
-    bag: &String,
+    bag: &str,
     keep_count: bool,
 ) -> HashMap<String, Vec<String>> {
     if bag.contains("no other bags") {
@@ -37,7 +37,7 @@ pub fn add_bag(
         for i in 1..split.len() {
             for _y in 0..split[i][0].parse::<i32>().unwrap() {
                 let mut value: String = split[i][1].clone();
-                value.push_str(" ");
+                value.push(' ');
                 value.push_str(&split[i][2].clone());
                 children.push(value);
             }
@@ -45,14 +45,14 @@ pub fn add_bag(
     } else {
         for i in 1..split.len() {
             let mut value: String = split[i][1].clone();
-            value.push_str(" ");
+            value.push(' ');
             value.push_str(&split[i][2].clone());
             children.push(value);
         }
     }
 
     let mut key: String = split[0][0].clone();
-    key.push_str(" ");
+    key.push(' ');
     key.push_str(&split[0][1].clone());
     map.insert(key, children);
     map
@@ -82,27 +82,27 @@ pub fn contains_gold_bag(bag: Option<&Vec<String>>, map: &HashMap<String, Vec<St
 
     let mut result = 0;
     for b in bag {
-        if "shiny gold".to_string() == *b || result > 0 {
+        if "shiny gold" == *b || result > 0 {
             return 1;
         }
         result += contains_gold_bag(map.get(b), &map);
     }
 
-    return result;
+    result
 }
 
 pub fn count_golden_bags(map: HashMap<String, Vec<String>>) -> i32 {
     let mut count = 0;
 
     for m in &map {
-        if "shiny gold".to_string() != *m.0 && contains_gold_bag(Some(&m.1), &map) > 0 {
+        if "shiny gold" != *m.0 && contains_gold_bag(Some(&m.1), &map) > 0 {
             count += 1;
         }
     }
     count
 }
 
-pub fn count_content_of_bag(map: &HashMap<String, Vec<String>>, bag: &String) -> i32 {
+pub fn count_content_of_bag(map: &HashMap<String, Vec<String>>, bag: &str) -> i32 {
     let bag = map.get(bag);
     if bag.is_none() {
         return 0;

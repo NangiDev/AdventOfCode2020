@@ -10,7 +10,7 @@ fn read_input() -> Vec<String> {
     batches
 }
 
-pub fn find_row(seat: &String) -> i32 {
+pub fn find_row(seat: &str) -> i32 {
     let mut row_max = 127;
     let mut row_min = 0;
     let mut chars = seat.chars();
@@ -28,7 +28,7 @@ pub fn find_row(seat: &String) -> i32 {
     row_min
 }
 
-pub fn find_column(seat: &String) -> i32 {
+pub fn find_column(seat: &str) -> i32 {
     let mut col_max = 7;
     let mut col_min = 0;
     for c in seat.chars() {
@@ -81,7 +81,7 @@ pub fn _2() -> i32 {
         .into_iter()
         .map(|s| calculate_row_id(find_row(&s), find_column(&s)))
         .collect();
-    boarding_passes.sort();
+    boarding_passes.sort_unstable();
     find_missing_seat_in_list(boarding_passes)
 }
 

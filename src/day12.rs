@@ -6,6 +6,12 @@ pub struct Waypoint {
     pub y: i32,
 }
 
+impl Default for Waypoint {
+    fn default() -> Self {
+        Waypoint::new()
+    }
+}
+
 impl Waypoint {
     pub fn new() -> Self {
         Self { x: 10, y: -1 }

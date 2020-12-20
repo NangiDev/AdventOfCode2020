@@ -14,9 +14,9 @@ pub fn sum_unique_letters(answers: Vec<String>) -> i32 {
     answers
         .into_iter()
         .map(|mut a| {
-            a = a.replace("\n", "");
+            a = a.replace('\n', "");
             let mut chars: Vec<char> = a.chars().collect();
-            chars.sort();
+            chars.sort_unstable();
             chars.dedup();
             chars.len() as i32
         })
@@ -29,9 +29,9 @@ pub fn sum_letters(answers: Vec<String>) -> i32 {
         .into_iter()
         .map(|mut a| {
             let mut count = 0;
-            let members = a.split("\n").count();
+            let members = a.split('\n').count();
             let mut chars: Vec<char> = a.chars().collect();
-            chars.sort();
+            chars.sort_unstable();
             a = chars.into_iter().map(|i| i.to_string()).collect::<String>();
 
             for l in letters.chars() {
