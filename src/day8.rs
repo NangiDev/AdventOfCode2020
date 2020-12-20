@@ -1,5 +1,7 @@
 use std::fs;
 
+use crate::run_day;
+
 pub fn exec_1(instructions: Vec<[String; 2]>) -> i32 {
     exec_single_instruction_on_inf_loop(0, &instructions, &mut vec![], 0)
 }
@@ -186,4 +188,8 @@ pub fn _2() -> i32 {
 
     let instructions = convert_exec(instructions);
     exec_2(instructions)
+}
+
+pub fn print() {
+    run_day!(crate::day8);
 }

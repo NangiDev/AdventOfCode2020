@@ -1,64 +1,48 @@
-use std::{env, io};
+use std::env;
 
 use adventofcode_2020::*;
 
-macro_rules! run_day {
-    ($day:path) => {{
-        use $day::*;
-        println!(
-            "{}\n    part1:    {:?}\n    part2:    {:?}",
-            stringify!($day),
-            _1(),
-            _2()
-        );
-    }};
-}
+const DAYS: &[fn()] = &[
+    day1::print,
+    day2::print,
+    day3::print,
+    day4::print,
+    day5::print,
+    day6::print,
+    day7::print,
+    day8::print,
+    day9::print,
+    day10::print,
+    day11::print,
+    day12::print,
+    day13::print,
+    day14::print,
+    day15::print,
+    day16::print,
+    day16::print,
+    day18::print,
+    day18::print,
+    day18::print,
+];
 
 macro_rules! invalid_day {
     ($x:expr) => {{
-        println!("Invalid day number: {}", $x);
+        println!("Invalid day number: \"{}\"", $x);
     }};
 }
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    let mut day = String::new();
 
-    match args.get(1) {
-        Some(option) => {
-            day = option.to_string();
-        }
-        None => {
-            println!("Enter day: ");
-            io::stdin()
-                .read_line(&mut day)
-                .expect("Failed to read line");
-        }
+    if let Some(day) = args.get(1) {
+        match day.trim().parse::<usize>() {
+            Ok(day) => match DAYS.get(day.wrapping_sub(1)) {
+                Some(day) => day(),
+                None => invalid_day!(day),
+            },
+            Err(_) => invalid_day!(day),
+        };
+    } else {
+        println!("Missing argument!");
     }
-
-    match day.trim().parse::<i32>() {
-        Ok(day_num) => match day_num {
-            1 => run_day!(day1),
-            2 => run_day!(day2),
-            3 => run_day!(day3),
-            4 => run_day!(day4),
-            5 => run_day!(day5),
-            6 => run_day!(day6),
-            7 => run_day!(day7),
-            8 => run_day!(day8),
-            9 => run_day!(day9),
-            10 => run_day!(day10),
-            11 => run_day!(day11),
-            12 => run_day!(day12),
-            13 => run_day!(day13),
-            14 => run_day!(day14),
-            15 => run_day!(day15),
-            16 => run_day!(day16),
-            18 => run_day!(day18),
-            _ => invalid_day!(day),
-        },
-        Err(_) => {
-            invalid_day!(day);
-        }
-    };
 }

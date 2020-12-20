@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use crate::{input, utils::Input};
+use crate::{input, run_day, utils::Input};
 
 pub fn add_next_spoken(
     mut values: Vec<i32>,
@@ -65,4 +65,8 @@ pub fn _1() -> i32 {
 pub fn _2() -> i32 {
     let input = input!("./src/input_files/day15.txt").as_int();
     get_nth_number(30000000, input)
+}
+
+pub fn print() {
+    run_day!(crate::day15);
 }

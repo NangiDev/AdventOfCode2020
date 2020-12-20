@@ -1,4 +1,4 @@
-use crate::{input, utils::Input};
+use crate::{input, run_day, utils::Input};
 
 pub struct Step {
     pub x: i32,
@@ -71,4 +71,8 @@ pub fn _2() -> i32 {
     answer *= count_trees_in_path(step, &map);
 
     answer
+}
+
+pub fn print() {
+    run_day!(crate::day3);
 }

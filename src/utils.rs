@@ -14,6 +14,19 @@ macro_rules! debug {
     };
 }
 
+#[macro_export]
+macro_rules! run_day {
+    ($day:path) => {{
+        use $day::*;
+        println!(
+            "{}\n    part1:    {:?}\n    part2:    {:?}",
+            stringify!($day),
+            _1(),
+            _2()
+        );
+    }};
+}
+
 #[derive(Debug)]
 pub struct Input {
     pub path: &'static str,

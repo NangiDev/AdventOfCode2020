@@ -1,4 +1,4 @@
-use crate::{input, utils::Input};
+use crate::{input, run_day, utils::Input};
 
 pub fn check_unofficial_password_validity(password: String) -> bool {
     let filtered: String = password.replace(": ", ":");
@@ -55,4 +55,8 @@ pub fn _1() -> i32 {
 pub fn _2() -> i32 {
     let input = input!("./src/input_files/day2.txt");
     count_valid_passwords_according_to_official_toboggan_policy(input.as_string())
+}
+
+pub fn print() {
+    run_day!(crate::day2);
 }

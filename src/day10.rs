@@ -1,5 +1,7 @@
 use std::{collections::HashMap, fs, vec};
 
+use crate::run_day;
+
 pub fn get_built_in_joltage(joltages: Vec<i64>) -> i64 {
     joltages.into_iter().fold(0, i64::max) + 3
 }
@@ -68,4 +70,8 @@ pub fn _1() -> i64 {
 pub fn _2() -> i64 {
     let joltages = read_input();
     get_total_of_combinations(joltages)
+}
+
+pub fn print() {
+    run_day!(crate::day10);
 }

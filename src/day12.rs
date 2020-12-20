@@ -1,4 +1,4 @@
-use crate::{input, utils::Input};
+use crate::{input, run_day, utils::Input};
 
 #[derive(Debug)]
 pub struct Waypoint {
@@ -211,4 +211,8 @@ pub fn _2() -> i32 {
     let input = input!("./src/input_files/day12.txt");
     let ferry = move_ferry_with_waypoint_navigation(input.as_string());
     ferry.x.abs() + ferry.y.abs()
+}
+
+pub fn print() {
+    run_day!(crate::day12);
 }

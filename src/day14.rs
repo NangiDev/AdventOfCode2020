@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use crate::{input, utils::Input};
+use crate::{input, run_day, utils::Input};
 
 pub fn apply_mask(mask: String, number: i64) -> i64 {
     let mut bytes = format!("{:#036b}", number).chars().collect::<Vec<char>>();
@@ -64,4 +64,8 @@ pub fn _2() -> i64 {
     let _input = input!("./src/input_files/day14.txt").as_string();
     println!("Not implemented yet");
     0
+}
+
+pub fn print() {
+    run_day!(crate::day14);
 }

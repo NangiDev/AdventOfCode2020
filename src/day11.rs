@@ -1,5 +1,7 @@
 use std::{cmp::Ordering, fs};
 
+use crate::run_day;
+
 pub fn count_seats(state: &Vec<Vec<char>>) -> i32 {
     let mut count = 0;
     for s1 in state {
@@ -212,4 +214,8 @@ pub fn _2() -> i32 {
     }
 
     count_seats(&new_state)
+}
+
+pub fn print() {
+    run_day!(crate::day11);
 }

@@ -1,4 +1,4 @@
-use crate::{input, utils::Input};
+use crate::{input, run_day, utils::Input};
 
 pub fn get_next_depart_of_bus(time_stamp: i32, id: i32) -> i32 {
     let mut beginning = 0;
@@ -170,4 +170,8 @@ pub fn _2() -> i64 {
     // }
 
     find_earliest_sequece_of(100000000000000, busses)
+}
+
+pub fn print() {
+    run_day!(crate::day13);
 }

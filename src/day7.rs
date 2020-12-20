@@ -1,5 +1,7 @@
 use std::{collections::HashMap, fs};
 
+use crate::run_day;
+
 fn read_input() -> Vec<String> {
     let path = "./src/input_files/day7.txt";
     let contents = fs::read_to_string(path).expect("Something went wrong reading the file");
@@ -126,4 +128,8 @@ pub fn _2() -> i32 {
     let input = read_input();
     let input = convert_to_map_with_count_of_bag(input);
     count_content_of_bag(&input, &"shiny gold".to_string())
+}
+
+pub fn print() {
+    run_day!(crate::day7);
 }

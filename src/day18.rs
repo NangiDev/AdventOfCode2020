@@ -1,4 +1,4 @@
-use crate::{input, utils::Input};
+use crate::{input, run_day, utils::Input};
 
 pub fn calculate(mut expr: Vec<String>) -> i64 {
     expr = expr
@@ -145,4 +145,8 @@ pub fn _2() -> i64 {
         count += calculate_with_nested_expressions_ordered(expr);
     }
     count
+}
+
+pub fn print() {
+    run_day!(crate::day18);
 }

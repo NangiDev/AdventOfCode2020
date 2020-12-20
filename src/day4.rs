@@ -1,7 +1,7 @@
 use regex::Regex;
 use std::collections::HashMap;
 
-use crate::{input, utils::Input};
+use crate::{input, run_day, utils::Input};
 
 pub fn is_valid_passport(map: &HashMap<String, String>) -> bool {
     map.contains_key("ecl")
@@ -123,4 +123,8 @@ pub fn _2() -> i32 {
     let hash_map = input_to_hashmap(input.as_group());
     let valid_input = filter_complete_passports(hash_map);
     filter_valid_passports(valid_input).len() as i32
+}
+
+pub fn print() {
+    run_day!(crate::day4);
 }

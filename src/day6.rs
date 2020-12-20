@@ -1,5 +1,7 @@
 use std::fs;
 
+use crate::run_day;
+
 fn read_input() -> Vec<String> {
     let path = "./src/input_files/day6.txt";
     let contents = fs::read_to_string(path).expect("Something went wrong reading the file");
@@ -51,4 +53,8 @@ pub fn _1() -> i32 {
 pub fn _2() -> i32 {
     let answers = read_input();
     sum_letters(answers)
+}
+
+pub fn print() {
+    run_day!(crate::day6);
 }

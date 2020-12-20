@@ -1,5 +1,7 @@
 use std::fs;
 
+use crate::run_day;
+
 fn read_input() -> Vec<String> {
     let path = "./src/input_files/day5.txt";
     let contents = fs::read_to_string(path).expect("Something went wrong reading the file");
@@ -81,4 +83,8 @@ pub fn _2() -> i32 {
         .collect();
     boarding_passes.sort();
     find_missing_seat_in_list(boarding_passes)
+}
+
+pub fn print() {
+    run_day!(crate::day5);
 }

@@ -1,4 +1,4 @@
-use crate::{input, utils::Input};
+use crate::{input, run_day, utils::Input};
 
 pub fn fix_expense_report_2(values: Vec<i32>) -> i32 {
     for v1 in &values {
@@ -27,7 +27,12 @@ pub fn _1() -> i32 {
     let input = input!("./src/input_files/day1.txt");
     fix_expense_report_2(input.as_int())
 }
+
 pub fn _2() -> i32 {
     let input = input!("./src/input_files/day1.txt");
     fix_expense_report_3(input.as_int())
+}
+
+pub fn print() {
+    run_day!(crate::day1);
 }

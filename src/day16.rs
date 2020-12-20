@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use crate::{input, utils::Input};
+use crate::{input, run_day, utils::Input};
 
 pub fn get_error_rate(ticket: String, map: HashMap<String, Vec<i32>>) -> i32 {
     for t in ticket
@@ -62,4 +62,8 @@ pub fn _1() -> i32 {
 pub fn _2() -> String {
     let _input = input!("./src/input_files/day16.txt").as_group();
     "Not implemented".to_string()
+}
+
+pub fn print() {
+    run_day!(crate::day16);
 }

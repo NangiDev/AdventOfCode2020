@@ -1,5 +1,7 @@
 use std::fs;
 
+use crate::run_day;
+
 fn read_input() -> Vec<String> {
     let path = "./src/input_files/day9.txt";
     let contents = fs::read_to_string(path).expect("Something went wrong reading the file");
@@ -72,4 +74,8 @@ pub fn _2() -> i64 {
         .map(|s| s.parse::<i64>().unwrap())
         .collect();
     find_set(input, 1212510616)
+}
+
+pub fn print() {
+    run_day!(crate::day9);
 }
