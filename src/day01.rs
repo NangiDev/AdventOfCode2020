@@ -8,7 +8,7 @@ pub fn fix_expense_report_2(values: Vec<i32>) -> i32 {
             }
         }
     }
-    return 0;
+    0
 }
 pub fn fix_expense_report_3(values: Vec<i32>) -> i32 {
     for v1 in &values {
@@ -20,7 +20,7 @@ pub fn fix_expense_report_3(values: Vec<i32>) -> i32 {
             }
         }
     }
-    return 0;
+    0
 }
 
 pub fn _1() -> i32 {
