@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod day_8 {
-    use adventofcode_2020::day8::{convert_exec, exec_1, exec_2};
+    use adventofcode_2020::day08::{convert_exec, exec_1, exec_2};
     use std::vec;
 
     #[test]

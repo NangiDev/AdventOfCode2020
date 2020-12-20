@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod day_9 {
-    use adventofcode_2020::day9::{find_first_invalid, find_set, is_valid_number};
+    use adventofcode_2020::day09::{find_first_invalid, find_set, is_valid_number};
 
     #[test]
     fn preamble_of_1_to_25_next_number_26_is_valid() {

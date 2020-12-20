@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod day_5 {
-    use adventofcode_2020::day5::{
+    use adventofcode_2020::day05::{
         calculate_row_id, find_column, find_highest_seat_id, find_missing_seat_in_list, find_row,
     };
 

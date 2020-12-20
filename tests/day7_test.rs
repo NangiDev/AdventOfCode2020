@@ -2,7 +2,7 @@
 mod day_7 {
     use std::{collections::HashMap, vec};
 
-    use adventofcode_2020::day7::{
+    use adventofcode_2020::day07::{
         add_bag, contains_gold_bag, convert_to_map, convert_to_map_with_count_of_bag,
         count_content_of_bag, count_golden_bags,
     };

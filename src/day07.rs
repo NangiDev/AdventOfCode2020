@@ -131,5 +131,5 @@ pub fn _2() -> i32 {
 }
 
 pub fn print() {
-    run_day!(crate::day7);
+    run_day!(crate::day07);
 }

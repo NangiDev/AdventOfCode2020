@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod day_2 {
-    use adventofcode_2020::day2::{
+    use adventofcode_2020::day02::{
         check_official_password_validity, check_unofficial_password_validity,
         count_valid_passwords_according_to_official_toboggan_policy,
         count_valid_passwords_according_to_unofficial_toboggan_policy,

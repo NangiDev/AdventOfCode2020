@@ -77,5 +77,5 @@ pub fn _2() -> i64 {
 }
 
 pub fn print() {
-    run_day!(crate::day9);
+    run_day!(crate::day09);
 }

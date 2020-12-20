@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod day_4 {
-    use adventofcode_2020::day4::{
+    use adventofcode_2020::day04::{
         filter_complete_passports, filter_valid_passports, is_fields_valid, is_valid_passport,
     };
     use std::collections::HashMap;

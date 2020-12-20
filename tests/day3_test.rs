@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod day_3 {
-    use adventofcode_2020::day3::{count_trees_in_path, Map, Step};
+    use adventofcode_2020::day03::{count_trees_in_path, Map, Step};
 
     fn map() -> Map {
         Map {

@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod day_6 {
-    use adventofcode_2020::day6::{sum_letters, sum_unique_letters};
+    use adventofcode_2020::day06::{sum_letters, sum_unique_letters};
 
     #[test]
     fn sum_of_unique_answers_is_11() {
